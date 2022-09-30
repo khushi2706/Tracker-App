@@ -1,6 +1,7 @@
 <template lang="">
   <div>
     <!--Main layout-->
+   
     <main style="margin-top: 58px">
       <div class="container pt-4">
         <section class="mb-4">
@@ -15,6 +16,7 @@
       <section>
           <div class="card-body">
             <div class="table-responsive">
+               {{ info }}
               <table class="table table-hover text-nowrap">
                 <thead>
                   <tr>
@@ -53,8 +55,27 @@
   </div>
 </template>
 <script>
+import axios from 'axios';
 export default {
     name:'AllActivity'
+    ,
+  data () {
+    return {
+      info: null
+    }
+  },
+  mounted () {
+    axios
+      .get('http://127.0.0.1:5000/v1/activity/',
+      {
+     headers: {
+    "accept": "application/json",
+    "Content-Type": "application/json",
+    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY2NDU0MzA0NCwianRpIjoiYjA2NDJiMTUtMDE2My00MjIyLWExYTktYTdlOTViZjU2OGJkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNjY0NTQzMDQ0fQ.gSNC1plwVRu-lFa65yVdzPZmLUOxrdZ_ItltiHY1hoM" },}
+      )
+      .then(response => { this.info = response.data.data.activities; console.log(this.info)})
+  }
+
 }
 </script>
 <style lang="">
