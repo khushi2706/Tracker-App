@@ -3,10 +3,8 @@ class="form-control"<template>
       <div class="container pt-4">
       <div class="container pt-4">
 
-        
-        <form >
+        <form class="p-4">
           <div class="form-group-row">
-
             <label>Title :</label>
             <input type="title" v-model="title" class="form-control"  required>
           </div>
@@ -40,7 +38,7 @@ class="form-control"<template>
           </div>
 
         <div class="button mt-3" >
-            <button class="submit btn btn-primary mb-2 " v-on:click.prevent="handleSubmit()" type="submit">Add</button>
+            <button class="submit btn btn-primary mb-2 " v-on:click.prevent="handleSubmit()" type="submit">Update</button>
         </div>
 </form>
 </div>
@@ -49,18 +47,32 @@ class="form-control"<template>
 </template>
 
 <script>
+import axios from "axios"
   export default {
-     name: "AddActivity",
+     name: "ViewActivity",
    data() {
         return {
-            title: "",
+          activity:{
+          title: "",
           distance: 0,
           activity_type: 0,
           note: "",
           start_at: "",
           end_at: ""
+          }
         }
     },
+     mounted () {
+    axios
+      .get('http://127.0.0.1:5000/v1/activity/1',
+      {
+     headers: {
+    "accept": "application/json",
+    "Content-Type": "application/json",
+    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY2NDU0MzA0NCwianRpIjoiYjA2NDJiMTUtMDE2My00MjIyLWExYTktYTdlOTViZjU2OGJkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNjY0NTQzMDQ0fQ.gSNC1plwVRu-lFa65yVdzPZmLUOxrdZ_ItltiHY1hoM" },}
+      )
+      .then(response => { this.activity = response.data.data.activity; console.log(this.info)})
+  },
     methods: {
    
         handleSubmit() {
