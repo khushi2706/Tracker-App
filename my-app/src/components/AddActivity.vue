@@ -11,6 +11,10 @@ class="form-control"<template>
             <input type="title" v-model="title" class="form-control"  required>
           </div>
           <div class="form-group-row">
+            <label>Date :</label>
+            <input type="date"  class="form-control"  required>
+          </div>
+          <div class="form-group-row">
             <label>distance :</label>  
             <input type="distance" class="form-control" >    
           </div>
@@ -21,10 +25,7 @@ class="form-control"<template>
               <option value="1">Cycling</option> 
             </select>
           </div>
-          <div class="form-group-row">
-            <label>note:</label>  
-            <input v-model="note"  class="form-control">  
-          </div>
+          
           <div class="form-group-row">
             
             <label>start at :</label>  
@@ -33,7 +34,10 @@ class="form-control"<template>
             <label>End At:</label>  
             <input v-model="end_at"  class="form-control">  
           </div>
-
+          <div class="form-group-row">
+            <label>note:</label>  
+            <input v-model="note" type="textarea"  class="form-control">  
+          </div>
 
         <div class="button mt-3" >
             <button class="submit btn btn-primary mb-2 " v-on:click.prevent="handleSubmit()" type="submit">Add</button>
