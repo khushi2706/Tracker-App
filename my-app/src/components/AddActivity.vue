@@ -1,32 +1,45 @@
-<template>
+class="form-control"<template>
   <main style="margin-top: 58px">
       <div class="container pt-4">
-<form >
-         <label>Title :</label>
-        <input type="title" v-model="title"   required>
+      <div class="container pt-4">
 
-        <label>distance :</label>  
-        <input type="distance"  >    
-
-        <label>activity_type</label>
-        <select v-model="activity_type">
-            <option value="0">Walking</option> 
-            <option value="1">Cycling</option> 
-        </select>
-
-      <label>note:</label>  
-        <input v-model="note"  >  
         
-        <label>start at :</label>  
-        <input v-model="start_at"> 
+        <form >
+          <div class="form-group-row">
 
-        <label>End At:</label>  
-        <input v-model="end_at" >  
+            <label>Title :</label>
+            <input type="title" v-model="title" class="form-control"  required>
+          </div>
+          <div class="form-group-row">
+            <label>distance :</label>  
+            <input type="distance" class="form-control" >    
+          </div>
+          <div class="form-group-row">
+            <label>activity_type</label>
+            <select v-model="activity_type" class="form-control">
+              <option value="0">Walking</option> 
+              <option value="1">Cycling</option> 
+            </select>
+          </div>
+          <div class="form-group-row">
+            <label>note:</label>  
+            <input v-model="note"  class="form-control">  
+          </div>
+          <div class="form-group-row">
+            
+            <label>start at :</label>  
+            <input v-model="start_at" class="form-control"> 
+            
+            <label>End At:</label>  
+            <input v-model="end_at"  class="form-control">  
+          </div>
+
 
         <div class="button">
-            <button class="submit" v-on:click.prevent="handleSubmit()" type="submit">Sign up here</button>
+            <button class="submit" v-on:click.prevent="handleSubmit()" type="submit">Add</button>
         </div>
 </form>
+</div>
 </div>
 </main>
 </template>
