@@ -111,7 +111,7 @@ def activityDistanceChecker(response, activityDistance):
 def datetimeChecker(response, date):
     try:
         # Fri,30 Sep 2022 07:20:06 GMT    <--- date format
-        return datetime.strptime(date, "%a,%d %b %Y %H:%M:%S %Z")
+       return datetime.strptime(date, "%Y-%m-%dT%H:%M")
     except:
         response.setStatus(400)
         response.setMessage("Bad request, invalid date provided")

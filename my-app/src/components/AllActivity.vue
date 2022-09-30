@@ -16,7 +16,6 @@
       <section>
           <div class="card-body">
             <div class="table-responsive">
-               {{ info }}
               <table class="table table-hover text-nowrap">
                 <thead>
                   <tr>
@@ -29,22 +28,15 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Value</td>
+                <tr v-for="(inf, index) in info"  :key="inf.id">
+                    <td>{{index}}</td>
+                    <td> {{inf.title}}</td>
                     <td>27/6/2022</td>
                     <td>10:20</td>
                     <td>12:30</td>
                     <td>55</td>
                   </tr>
-                  <tr>
-                    <td>1</td>
-                    <td>Value</td>
-                    <td>27/6/2022</td>
-                    <td>10:20</td>
-                    <td>12:30</td>
-                    <td>55</td>
-                  </tr>
+            
                 </tbody>
               </table>
             </div>
