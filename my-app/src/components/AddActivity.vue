@@ -35,8 +35,8 @@ class="form-control"<template>
           </div>
 
 
-        <div class="button">
-            <button class="submit" v-on:click.prevent="handleSubmit()" type="submit">Add</button>
+        <div class="button mt-3" >
+            <button class="submit btn btn-primary mb-2 " v-on:click.prevent="handleSubmit()" type="submit">Add</button>
         </div>
 </form>
 </div>
