@@ -30,11 +30,11 @@
                 <tbody>
                 <tr v-for="(inf, index) in info"  :key="inf.id">
                     <td>{{index}}</td>
-                    <td> {{inf.title}}</td>
-                    <td>27/6/2022</td>
-                    <td>10:20</td>
-                    <td>12:30</td>
-                    <td>55</td>
+                    <td><a href="/ViewActvity/"> {{inf.title}} </a></td>
+                    <td>{{inf.date}}</td>
+                    <td>{{inf.start_at}}</td>
+                    <td>{{inf.end_at}}</td>
+                    <td>{{inf.distance}}</td>
                   </tr>
             
                 </tbody>

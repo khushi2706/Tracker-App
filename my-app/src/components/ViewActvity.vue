@@ -3,10 +3,12 @@ class="form-control"<template>
       <div class="container pt-4">
       <div class="container pt-4">
 
+
         <form class="p-4">
           <div class="form-group-row">
+            
             <label>Title :</label>
-            <input type="title" v-model="title" class="form-control"  required>
+            <input type="title" v-model="activity.title" class="form-control"  required>
           </div>
           <div class="form-group-row">
             <label>Date :</label>
@@ -14,11 +16,11 @@ class="form-control"<template>
           </div>
           <div class="form-group-row">
             <label>distance :</label>  
-            <input type="distance" class="form-control" >    
+            <input v-model="activity.distance" class="form-control" >    
           </div>
           <div class="form-group-row">
             <label>activity_type</label>
-            <select v-model="activity_type" class="form-control">
+            <select v-model="activity.activity_type" class="form-control">
               <option value="0">Walking</option> 
               <option value="1">Cycling</option> 
             </select>
@@ -27,14 +29,14 @@ class="form-control"<template>
           <div class="form-group-row">
             
             <label>start at :</label>  
-            <input v-model="start_at" class="form-control"> 
+            <input v-model="activity.start_at" class="form-control"> 
             
             <label>End At:</label>  
-            <input v-model="end_at"  class="form-control">  
+            <input v-model="activity.end_at"  class="form-control">  
           </div>
           <div class="form-group-row">
             <label>note:</label>  
-            <input v-model="note" type="textarea"  class="form-control">  
+            <input v-model="activity.note" type="textarea"  class="form-control">  
           </div>
 
         <div class="button mt-3" >
@@ -71,7 +73,13 @@ import axios from "axios"
     "Content-Type": "application/json",
     "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY2NDU0MzA0NCwianRpIjoiYjA2NDJiMTUtMDE2My00MjIyLWExYTktYTdlOTViZjU2OGJkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNjY0NTQzMDQ0fQ.gSNC1plwVRu-lFa65yVdzPZmLUOxrdZ_ItltiHY1hoM" },}
       )
-      .then(response => { this.activity = response.data.data.activity; console.log(this.info)})
+      .then(response => {  let activity = response.data.data;
+       this.activity.activity_id = activity.activity_id,
+       this.activity.title = activity.title
+       this.activity.start_at = activity.start_at
+       this.activity.end_at = activity.end_at,
+       this.activity.note = activity.note
+       })
   },
     methods: {
    
